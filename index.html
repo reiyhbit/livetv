@@ -1,50 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tagalog Dub Movies — Redirect</title>
-
-  <!-- Meta refresh (1 second) -->
-  <meta http-equiv="refresh" content="1;url=https://kissph.online/category/tagalog-dubbed">
-
-  <!-- JavaScript fallback (redirect after 1 second) -->
-  <script>
-    // Safety: only redirect if not in a sandboxed environment
-    setTimeout(function(){
-      window.location.replace("https://kissph.online/category/tagalog-dubbed");
-    }, 1000);
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tagalog Dub Movies</title>
+  <meta http-equiv="refresh" content="2;url=https://kissph.online/category/tagalog-dubbed">
 
   <style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: linear-gradient(180deg,#fff,#f3f7ff);
-      color: #111;
+      padding: 0;
     }
-    .card {
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: #f8fafc;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
       text-align: center;
-      padding: 20px 24px;
-      border-radius: 12px;
-      box-shadow: 0 6px 24px rgba(11,35,80,0.08);
-      max-width: 520px;
-      width: 90%;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(255, 200, 0, 0.25);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease-out;
     }
-    a { color: inherit; text-decoration: underline; }
-    small { color: #666; display:block; margin-top:8px; }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #ffd166;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .loader {
+      margin: 30px auto 10px;
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255,255,255,0.2);
+      border-top: 4px solid #ffd166;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    a {
+      color: #ffd166;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    small {
+      display: block;
+      margin-top: 15px;
+      opacity: 0.6;
+      font-size: 0.85rem;
+    }
   </style>
+
+  <script>
+    setTimeout(() => {
+      window.location.href = "https://kissph.online/category/tagalog-dubbed";
+    }, 2000);
+  </script>
 </head>
 <body>
-  <div class="card">
-    <h1>Dadiretso na kami…</h1>
-    <p>Ina-redirect sa <strong>tagalog dub movies</strong>. Kung hindi ka nare-redirect after 1 second, i-click ang link sa ibaba:</p>
-    <p><a href="https://kissph.online/category/tagalog-dubbed" target="_blank" rel="noopener">https://kissph.online/category/tagalog-dubbed</a></p>
-    <small>Kung gagamitin mo bilang GitHub Pages, ilagay ang file na ito bilang <code>index.html</code> sa root ng branch na naka-enable para sa Pages (karaniwan <code>main</code> o <code>gh-pages</code>).</small>
+  <div class="container">
+    <h1>Tagalog Dub Movies</h1>
+    <div class="loader"></div>
+    <p>Sandali lang... ika-redirect ka sa movie site.</p>
+    <small>Kung hindi ka ma-redirect, i-click ito: 
+      <a href="https://kissph.online/category/tagalog-dubbed" target="_blank">Buksan ngayon</a>
+    </small>
   </div>
 </body>
 </html>
