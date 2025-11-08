@@ -1,90 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="tl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPD / M3U8 Player (Local Upload)</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom right, #141e30, #243b55);
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-  }
-  h1 { margin-bottom: 20px; }
-  video {
-    width: 90%;
-    max-width: 800px;
-    height: auto;
-    margin-top: 15px;
-    border: 3px solid #00c3ff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px #00c3ff;
-  }
-  input[type="file"] {
-    background: #00c3ff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  input[type="file"]:hover {
-    background: #0099cc;
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tagalog Dub Movies — Redirect</title>
+
+  <!-- Meta refresh (1 second) -->
+  <meta http-equiv="refresh" content="1;url=https://kissph.online/category/tagalog-dubbed">
+
+  <!-- JavaScript fallback (redirect after 1 second) -->
+  <script>
+    // Safety: only redirect if not in a sandboxed environment
+    setTimeout(function(){
+      window.location.replace("https://kissph.online/category/tagalog-dubbed");
+    }, 1000);
+  </script>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(180deg,#fff,#f3f7ff);
+      color: #111;
+    }
+    .card {
+      text-align: center;
+      padding: 20px 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(11,35,80,0.08);
+      max-width: 520px;
+      width: 90%;
+    }
+    a { color: inherit; text-decoration: underline; }
+    small { color: #666; display:block; margin-top:8px; }
+  </style>
 </head>
 <body>
-<h1>🎬 Local MPD / M3U / M3U8 Player</h1>
-<p>Select a file (.mpd, .m3u, or .m3u8) from your device:</p>
-<input type="file" id="fileInput" accept=".mpd,.m3u8,.m3u">
-<video id="videoPlayer" controls></video>
-
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script src="https://cdn.jsdelivr.net/npm/dashjs@latest/dist/dash.all.min.js"></script>
-<script>
-document.getElementById('fileInput').addEventListener('change', function(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-
-  const video = document.getElementById('videoPlayer');
-  const fileURL = URL.createObjectURL(file);
-
-  // Clear any previous players
-  if (window.dashPlayer) window.dashPlayer.reset();
-  if (window.hlsPlayer) window.hlsPlayer.destroy();
-
-  if (file.name.endsWith('.m3u8')) {
-    if (Hls.isSupported()) {
-      window.hlsPlayer = new Hls();
-      window.hlsPlayer.loadSource(fileURL);
-      window.hlsPlayer.attachMedia(video);
-      window.hlsPlayer.on(Hls.Events.MANIFEST_PARSED, () => video.play());
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = fileURL;
-      video.play();
-    } else {
-      alert('HLS not supported in this browser.');
-    }
-  } else if (file.name.endsWith('.mpd')) {
-    window.dashPlayer = dashjs.MediaPlayer().create();
-    window.dashPlayer.initialize(video, fileURL, true);
-  } else if (file.name.endsWith('.m3u')) {
-    fetch(fileURL).then(r => r.text()).then(text => {
-      const lines = text.split('\n').filter(l => l && !l.startsWith('#'));
-      if (lines.length) {
-        video.src = lines[0];
-        video.play();
-      } else {
-        alert('Invalid M3U file.');
-      }
-    });
-  } else {
-    alert('Unsupported file type.');
-  }
-});
-</script>
+  <div class="card">
+    <h1>Dadiretso na kami…</h1>
+    <p>Ina-redirect sa <strong>tagalog dub movies</strong>. Kung hindi ka nare-redirect after 1 second, i-click ang link sa ibaba:</p>
+    <p><a href="https://kissph.online/category/tagalog-dubbed" target="_blank" rel="noopener">https://kissph.online/category/tagalog-dubbed</a></p>
+    <small>Kung gagamitin mo bilang GitHub Pages, ilagay ang file na ito bilang <code>index.html</code> sa root ng branch na naka-enable para sa Pages (karaniwan <code>main</code> o <code>gh-pages</code>).</small>
+  </div>
 </body>
 </html>
